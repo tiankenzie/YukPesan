@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="3">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/makanan"
+        android:background="@drawable/wallpaper3"
+        android:autoText="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:textIsSelectable="false"
+        android:textAlignment="center" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:id="@+id/minuman"
+        android:background="@drawable/wallpaper2"
+        android:autoText="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:textIsSelectable="false"
+        android:textAlignment="center" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/snack"
+        android:background="@drawable/snack"
+        android:autoText="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:textIsSelectable="false"
+        android:textAlignment="center" />
+</LinearLayout>

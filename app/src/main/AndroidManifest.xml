@@ -31,7 +31,13 @@
         </activity>
         <activity android:name=".page_snack">
         </activity>
+        <activity android:name=".view_order">
+        </activity>
+        <activity android:name=".page_koki">
+        </activity>
         <activity android:name=".detail_menu">
+        </activity>
+        <activity android:name=".page_kasir">
         </activity>
     </application>
 

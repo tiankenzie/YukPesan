@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="#332e2e">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="250dp"/>
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:background="@drawable/icon2"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="0dp"
         android:id="@+id/username"
+        android:textColor="#ffff"
         android:layout_centerVertical="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:inputType="textPassword"
+        android:textColor="#ffff"
         android:ems="10"
         android:id="@+id/password" />
 
@@ -25,5 +33,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Login"
+        android:background="#0676ff"
         android:id="@+id/btn_login" />
 </LinearLayout>

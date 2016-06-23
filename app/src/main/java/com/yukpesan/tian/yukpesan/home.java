@@ -1,10 +1,10 @@
 package com.yukpesan.tian.yukpesan;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.widget.TextView;
 
 
 /**
@@ -13,11 +13,18 @@ import android.support.v7.app.ActionBarActivity;
 public class home extends ActionBarActivity implements android.support.v7.app.ActionBar.TabListener{
     private ViewPager tabsviewPager;
     private Tabsadapter mTabsAdapter;
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar1);
+
         setContentView(R.layout.home);
+        title = (TextView) findViewById(R.id.title);
+        title.setText("Home");
 
         tabsviewPager = (ViewPager) findViewById(R.id.pages);
         mTabsAdapter = new Tabsadapter(getSupportFragmentManager());

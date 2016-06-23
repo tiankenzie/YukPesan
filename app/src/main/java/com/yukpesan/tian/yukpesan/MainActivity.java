@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -15,14 +16,20 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    TextView title;
 
     SharedPreferences sharedpreferences;
     public static final String MyPreference = "Ses";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar1);
         setContentView(R.layout.meja);
-        setTitle("YukPesan");
+
+        title = (TextView) findViewById(R.id.title);
+        title.setText("Choose Table");
 
 
         TextView meja1 = (TextView) this.findViewById(R.id.meja1);

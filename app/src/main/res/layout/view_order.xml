@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Meja 1  Pay"
+        android:textSize="20dp"
+        android:id="@+id/button"
+        android:background="#c0ff04"
+        android:layout_weight="0.15" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Meja 2  Cooking"
+        android:id="@+id/button2"
+        android:background="#60ff04"
+        android:layout_weight="0.18" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Meja 3  Done"
+        android:id="@+id/button3"
+        android:background="#01ff99"
+        android:layout_weight="0.17" />
+</LinearLayout>

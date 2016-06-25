@@ -3,14 +3,62 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#332e2e">
+    android:background="#c5c0c0">
 
 <ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="150dp"
+    android:layout_height="100dp"
     android:background="@drawable/nasigoreng"
     android:layout_marginTop="20dp"
-    android:layout_marginLeft="10dp"/>
+    android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:text="Description :"
+        android:textSize="15dp"
+        android:textAlignment="center"
+        android:textColor="#000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="80dp"
+        android:text="Nasi Goreng + Telur      Rp.15.000"
+        android:textSize="15dp"
+        android:textAlignment="center"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="100dp"
+        android:text="Quantity :"
+        android:textSize="15dp"
+        android:textAlignment="center"
+        android:textColor="#000000"/>
+    <Spinner
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/spinner_menu"
+        android:layout_marginLeft="100dp"
+        android:textAlignment="center"
+        android:text="Choose"
+        android:textColor="#ffff"
+        android:spinnerMode="dialog"
+        android:backgroundTint="#ffffff" />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Add to Order"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="#2564f5"
+        android:elegantTextHeight="true"
+        android:ellipsize="marquee" />
 
 
 </LinearLayout>

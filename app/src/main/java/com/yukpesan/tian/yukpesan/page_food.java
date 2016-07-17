@@ -7,13 +7,25 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by User on 6/19/2016.
  */
 public class page_food extends AppCompatActivity{
     TextView title;
+
+    Firebase foods;
+    ArrayList<String> images_right_arr,images_left_arr,id_images_right,id_images_left;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,72 +37,42 @@ public class page_food extends AppCompatActivity{
         title = (TextView) findViewById(R.id.title);
         title.setText("Choose Food");
 
+        Firebase.setAndroidContext(this);
+        foods = new Firebase("https://yukpesan.firebaseio.com/foods");
+        foods.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null) {
+                    images_right_arr = new ArrayList<String>();
+                    images_left_arr = new ArrayList<String>();
+                    id_images_right = new ArrayList<String>();
+                    id_images_left = new ArrayList<String>();
 
-        TextView nasi_goreng = (TextView) this.findViewById(R.id.nasi_goreng);
-        nasi_goreng.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_food.this, detail_menu.class);
-                startActivity(intent);
+                    int loop = 1;
+                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                        String images = child.child("image").getValue().toString();
+                        String ID_images = child.getKey().toString();
+                        if (loop % 2 == 1) {
+                            images_right_arr.add(images);
+                            id_images_right.add(ID_images);
+                        } else {
+                            images_left_arr.add(images);
+                            id_images_left.add(ID_images);
+                        }
+                        loop++;
+                    }
+                    ListView list_food = (ListView) findViewById(R.id.list_makanan);
+                    list_food.setAdapter(new CustomAdapter(page_food.this, images_right_arr, images_left_arr,id_images_right,id_images_left,"foods"));
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) list_food.getLayoutParams();
+                    mlp.setMargins(0, 0, 0, 0);
+                }
             }
-        });
 
-        TextView beef_steak = (TextView) this.findViewById(R.id.beef_steak);
-        beef_steak.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_food.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView spagheti = (TextView) this.findViewById(R.id.spagheti);
-        spagheti.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_food.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView chickenfried_steak = (TextView) this.findViewById(R.id.chickenfried_steak);
-        chickenfried_steak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_food.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView fusilli = (TextView) this.findViewById(R.id.fusilli);
-        fusilli.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_food.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView ayam_teriyaki = (TextView) this.findViewById(R.id.ayam_teriyaki);
-        ayam_teriyaki.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_food.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView Lemon_Herb_Roasted_Chicken = (TextView) this.findViewById(R.id.Lemon_Herb_Roasted_Chicken);
-        Lemon_Herb_Roasted_Chicken.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_food.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView steak_ayam = (TextView) this.findViewById(R.id.steak_ayam);
-        steak_ayam
-                .setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_food.this, detail_menu.class);
-                startActivity(intent);
+            public void onCancelled(FirebaseError firebaseError) {
+
             }
         });
     }
+
 }

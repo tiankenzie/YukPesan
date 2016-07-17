@@ -1,149 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:weightSum="4">
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:weightSum="2">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/nasi_goreng"
-            android:background="@drawable/nasigoreng"
-            android:autoText="false"
-            android:layout_marginBottom="2dp"
-            android:layout_marginRight="2dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginBottom="2dp"
-            android:id="@+id/beef_steak"
-            android:background="@drawable/beef_steak"
-            android:autoText="false"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center" />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:weightSum="2">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/spagheti"
-            android:background="@drawable/spagheti"
-            android:autoText="false"
-            android:layout_marginBottom="2dp"
-            android:layout_marginRight="2dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginBottom="2dp"
-            android:id="@+id/chickenfried_steak"
-            android:background="@drawable/chickenfried_steak"
-            android:autoText="false"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:weightSum="2">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/fusilli"
-            android:background="@drawable/fusilli"
-            android:autoText="false"
-            android:layout_marginBottom="2dp"
-            android:layout_marginRight="2dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginBottom="2dp"
-            android:id="@+id/ayam_teriyaki"
-            android:background="@drawable/ayam_teriyaki"
-            android:autoText="false"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:weightSum="2">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/Lemon_Herb_Roasted_Chicken"
-            android:background="@drawable/roastedchicken"
-            android:autoText="false"
-            android:layout_marginRight="2dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/steak_ayam"
-            android:background="@drawable/steak_ayam"
-            android:autoText="false"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:textIsSelectable="false"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_makanan"
+        android:layout_margin="0dp"
+        android:padding="0dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        android:dividerHeight="0dp"
+        android:divider="@android:color/transparent"/>
 </LinearLayout>

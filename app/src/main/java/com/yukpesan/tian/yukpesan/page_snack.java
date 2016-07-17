@@ -5,13 +5,24 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by User on 6/19/2016.
  */
 public class page_snack extends AppCompatActivity {
     TextView title;
+    Firebase snack;
+    ArrayList<String> images_right_arr,images_left_arr,id_images_right,id_images_left;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,68 +34,40 @@ public class page_snack extends AppCompatActivity {
         title = (TextView) findViewById(R.id.title);
         title.setText("Choose Snack");
 
-        TextView bananasdesserticecreamfruitsweets = (TextView) this.findViewById(R.id.bananasdesserticecreamfruitsweets);
-        bananasdesserticecreamfruitsweets.setOnClickListener(new View.OnClickListener() {
+        Firebase.setAndroidContext(this);
+        snack = new Firebase("https://yukpesan.firebaseio.com/snack");
+        snack.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_snack.this, detail_menu.class);
-                startActivity(intent);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null) {
+                    images_right_arr = new ArrayList<String>();
+                    images_left_arr = new ArrayList<String>();
+                    id_images_right = new ArrayList<String>();
+                    id_images_left = new ArrayList<String>();
+
+                    int loop = 1;
+                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                        String images = child.child("image").getValue().toString();
+                        String ID_images = child.getKey().toString();
+                        if (loop % 2 == 1) {
+                            images_right_arr.add(images);
+                            id_images_right.add(ID_images);
+                        } else {
+                            images_left_arr.add(images);
+                            id_images_left.add(ID_images);
+                        }
+                        loop++;
+                    }
+                    ListView list_snack = (ListView) findViewById(R.id.list_snack);
+                    list_snack.setAdapter(new CustomAdapter(page_snack.this, images_right_arr, images_left_arr, id_images_right, id_images_left,"snack"));
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) list_snack.getLayoutParams();
+                    mlp.setMargins(0, 0, 0, 0);
+                }
             }
-        });
-        TextView chocolateicecreamdesserts = (TextView) this.findViewById(R.id.chocolateicecreamdesserts);
-        chocolateicecreamdesserts.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_snack.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView burger = (TextView) this.findViewById(R.id.burger);
-        burger.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_snack.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView kentanggoreng = (TextView) this.findViewById(R.id.kentanggoreng);
-        kentanggoreng.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_snack.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView eskrimbadaiumpet = (TextView) this.findViewById(R.id.eskrimbadaiumpet);
-        eskrimbadaiumpet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_snack.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView pancakesuper = (TextView) this.findViewById(R.id.pancakesuper);
-        pancakesuper.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_snack.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView sosisbarbeque = (TextView) this.findViewById(R.id.sosisbarbeque);
-        sosisbarbeque.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_snack.this, detail_menu.class);
-                startActivity(intent);
-            }
-        });
-        TextView pancakegulung = (TextView) this.findViewById(R.id.pancakegulung);
-        pancakegulung.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(page_snack.this, detail_menu.class);
-                startActivity(intent);
+            public void onCancelled(FirebaseError firebaseError) {
+
             }
         });
     }

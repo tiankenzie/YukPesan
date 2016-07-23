@@ -26,7 +26,6 @@ public class page_food extends AppCompatActivity{
 
     Firebase foods;
     ArrayList<String> images_right_arr,images_left_arr,id_images_right,id_images_left;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -52,6 +51,8 @@ public class page_food extends AppCompatActivity{
                     for (DataSnapshot child : dataSnapshot.getChildren()) {
                         String images = child.child("image").getValue().toString();
                         String ID_images = child.getKey().toString();
+                        String Price = child.getKey().toString();
+                        String Description = child.getKey().toString();
                         if (loop % 2 == 1) {
                             images_right_arr.add(images);
                             id_images_right.add(ID_images);

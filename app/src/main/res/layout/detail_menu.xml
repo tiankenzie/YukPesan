@@ -11,31 +11,59 @@
     android:id="@+id/img"
     android:layout_marginTop="20dp"
     android:layout_marginLeft="20dp"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="5dp"
         android:text="Description :"
         android:textSize="15dp"
         android:textAlignment="center"
+        android:gravity="center_vertical|center_horizontal"
         android:textColor="#000000"/>
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="80dp"
-        android:text="Nasi Goreng + Telur      Rp.15.000"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:textColor="#000000"/>
+        android:weightSum="4">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:text="aaaa"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/desk"
+            android:textSize="10dp"
+            android:textAlignment="center"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:id="@+id/smbl"
+            android:text="Rp"
+            android:textSize="10dp"
+            android:textAlignment="center"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="aaaaa"
+            android:id="@+id/hrg"
+            android:textSize="10dp"
+            android:textAlignment="center"
+            android:textColor="#000000"/>
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="20dp"
         android:text="Quantity :"
         android:textSize="15dp"
         android:textAlignment="center"
@@ -44,7 +72,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:id="@+id/spinner_menu"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="20dp"
         android:textAlignment="center"
         android:text="Choose"
         android:textColor="#ffff"

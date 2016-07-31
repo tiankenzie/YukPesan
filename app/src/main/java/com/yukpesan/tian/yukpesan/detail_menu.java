@@ -52,6 +52,7 @@ public class detail_menu extends AppCompatActivity {
         setContentView(R.layout.detail_menu);
 
 
+
         title = (TextView) findViewById(R.id.title);
         title.setText("Detail Menu");
 
@@ -82,7 +83,9 @@ public class detail_menu extends AppCompatActivity {
                     harga = dataSnapshot.child("harga").getValue().toString();
                     TextView price = (TextView) findViewById(R.id.hrg);
                     price.setText(harga);
+
                 }
+
 
             }
 
@@ -118,7 +121,9 @@ public class detail_menu extends AppCompatActivity {
                     Firebase add_order = order.push();
                     add_order.setValue(Dataorder);
                     add_order.setPriority(Priority);
-                }
+                    Intent i = new Intent(detail_menu.this,home.class);
+                    startActivity(i);
+            }
             }
         });
     }

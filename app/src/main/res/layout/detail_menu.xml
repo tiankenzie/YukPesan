@@ -34,7 +34,7 @@
             android:text="aaaa"
             android:layout_marginLeft="5dp"
             android:id="@+id/desk"
-            android:textSize="10dp"
+            android:textSize="13dp"
             android:textAlignment="center"
             android:textColor="#000000"/>
         <TextView
@@ -44,7 +44,7 @@
             android:layout_marginTop="5dp"
             android:id="@+id/smbl"
             android:text="Rp"
-            android:textSize="10dp"
+            android:textSize="13dp"
             android:textAlignment="center"
             android:textColor="#000000"/>
         <TextView
@@ -53,7 +53,7 @@
             android:layout_marginTop="5dp"
             android:text="aaaaa"
             android:id="@+id/hrg"
-            android:textSize="10dp"
+            android:textSize="13dp"
             android:textAlignment="center"
             android:textColor="#000000"/>
 
